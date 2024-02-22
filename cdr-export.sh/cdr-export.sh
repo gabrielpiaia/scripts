@@ -5,7 +5,7 @@
 source config.conf
 
 
-  =$(date -d "yesterday" +%Y-%m-%d)
+ YESTERDAY=$(date -d "yesterday" +%Y-%m-%d)
 # Defina as variáveis
 CSV_FILE="nome_do_assinante$YESTERDAY.csv"
 LOG_FILE="export-cdr.log"
