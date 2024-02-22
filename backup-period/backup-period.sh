@@ -11,6 +11,7 @@ DBUSER="user"
 DBPASS="senha"
 DATABASE="database"
 TABLE="tabela"
+CAMPO='campo do where'
 
 # Se o arquivo de controle não existir, define a data de início como 01/12/2023
 if [ ! -e "$ARQUIVO_CONTROLE" ]; then
@@ -30,7 +31,7 @@ echo "Data final do select: $NOVA_DATA_FIM"
 echo "Data gravada no arquivo de controle: $ULTIMA_DATA_BACKUP"
 
 # Executar o dump da tabela especificada usando a data como filtro
-mysqldump -u$DBUSER -p$DBPASS $DATABASE $TABLE --no-create-info --set-gtid-purged=OFF --where="call_start_time BETWEEN '$NOVA_DATA_INICIO 00:00:00' AND '$NOVA_DATA_FIM 23:59:59'" > "$MYSQLDIR/${TABLE}.${NOVA_DATA_INICIO}-${NOVA_DATA_FIM}.sql"
+mysqldump -u$DBUSER -p$DBPASS $DATABASE $TABLE --no-create-info --set-gtid-purged=OFF --where="$CAMPO BETWEEN '$NOVA_DATA_INICIO 00:00:00' AND '$NOVA_DATA_FIM 23:59:59'" > "$MYSQLDIR/${TABLE}.${NOVA_DATA_INICIO}-${NOVA_DATA_FIM}.sql"
 
 
 # Compactar o arquivo SQL em .tar.gz
