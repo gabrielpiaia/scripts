@@ -7,6 +7,6 @@ Caso ocorra problemas instalar a versão específica:
 sudo yum install expect-5.45-14.el7_1
 
 Especificar porta no nome do usuário:
-FTP_USER="-P22443 novatech"
+FTP_USER="-P22443 seu_usuario"
 
 Ajustar assinante e credenciais no arquivo config.conf
